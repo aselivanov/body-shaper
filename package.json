@@ -1,0 +1,16 @@
+{
+  "name": "body-shaper",
+  "version": "0.1.0",
+  "author": "Aleks Selivanov <aleks.selivanov@yahoo.com>",
+  "description": "Put request bodies in good shape",
+  "license": "MIT",
+  "repository": "aselivanov/body-shaper",
+  "files": [
+    "index.js",
+    "LICENSE"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.spec.js"
+  }
+}
