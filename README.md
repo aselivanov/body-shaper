@@ -4,68 +4,77 @@ Put request bodies in good shape. Useful for normalizing (shaping) raw form inpu
 
 ## Installation
 
-    npm install body-shaper
+```sh
+npm install body-shaper
+```
 
 ## Examples
 
-    const shaper = require('body-shaper');
-     
-    const shape = shaper({
-        username: String,
-        dateOfBirth: Date,
-        isPublic: Boolean,
-        experiences: [
-            {
-                company: String,
-                years: {
-                    from: Number,
-                    to: Number
-                }
-            }
-        ]
-    });
-
+```js
+const shaper = require('body-shaper');
     
-    > shape({})
-    {
-        username: '',
-        experiences: []
-    }
-
-
-    > shape({
-    >     username: '    Aleks ',
-    >     isPublic: 'yes',
-    >     dateOfBirth: '1987-12-01',
-    >     experiences: [
-    >         {
-    >             company: 'Slow Motion Software'
-    >         }
-    >     ]
-    > }
-    {
-        username: 'Aleks',
-        isPublic: true,
-        dateOfBirth: new Date('1987-12-01'),
-        experiences: [
-            {
-                company: 'Slow Motion Software',
-                years: {}
+const shape = shaper({
+    username: String,
+    dateOfBirth: Date,
+    isPublic: Boolean,
+    experiences: [
+        {
+            company: String,
+            years: {
+                from: Number,
+                to: Number
             }
-        ]
-    }
+        }
+    ]
+});
+
+
+> shape({})
+{
+    username: '',
+    experiences: []
+}
+
+
+> shape({
+>     username: '    Aleks ',
+>     isPublic: 'yes',
+>     dateOfBirth: '1987-12-01',
+>     experiences: [
+>         {
+>             company: 'Slow Motion Software'
+>         }
+>     ]
+> }
+{
+    username: 'Aleks',
+    isPublic: true,
+    dateOfBirth: new Date('1987-12-01'),
+    experiences: [
+        {
+            company: 'Slow Motion Software',
+            years: {}
+        }
+    ]
+}
+```
 
 ## Extending
 
 Feel free to use your own shapers.
 
-    const shape = shaper({
-        tags: (string) => String(string || '').split(',').map(tag => tag.trim()).filter(tag => tag)
-    })
+```js
+const shape = shaper({
+    tags: (string) => 
+        String(string || '').split(',')
+            .map(tag => tag.trim())
+            .filter(tag => tag)
+})
 
-    > shape({
-    >     tags: 'hello, world,     ,, ,yay',
-    > })
-    {
-        tags: ['hello', 'world', 'yay']
-    }
+> shape({
+>     tags: 'hello, world,     ,, ,yay',
+> })
+{
+    tags: ['hello', 'world', 'yay']
+}
+```
