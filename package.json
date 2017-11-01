@@ -1,6 +1,6 @@
 {
   "name": "body-shaper",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Aleks Selivanov <aleks.selivanov@yahoo.com>",
   "description": "Put request bodies in good shape",
   "license": "MIT",
