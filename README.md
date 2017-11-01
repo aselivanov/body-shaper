@@ -1,6 +1,7 @@
 # body-shaper
 
-Put request bodies in good shape. Useful for normalizing (shaping) raw form input.
+Put bodies in good shape. The goal is to make objects with expected structure 
+safe to navigate. Useful for normalizing (shaping) raw request payload.
 
 ## Installation
 
@@ -32,6 +33,8 @@ const shape = shaper({
 > shape({})
 {
     username: '',
+    dateOfBirth: null,
+    idPublic: null,
     experiences: []
 }
 
@@ -53,7 +56,10 @@ const shape = shaper({
     experiences: [
         {
             company: 'Slow Motion Software',
-            years: {}
+            years: {
+                from: null,
+                to: null
+            }
         }
     ]
 }
