@@ -27,13 +27,9 @@ function objectShaper(spec) {
     }
     return function shape(object) {
         const shaped = {};
-        if (object) {
-            for (let key of keys) {
-                const propShaped = keyShapers[key](object[key]);
-                if (propShaped != null) {
-                    shaped[key] = propShaped;
-                }
-            }
+        var _object = object || {};
+        for (let key of keys) {
+            shaped[key] = keyShapers[key](_object[key]);
         }
         return shaped;
     }

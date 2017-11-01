@@ -21,6 +21,8 @@ const shaper = require('./');
         shape({}),
         {
             username: '',
+            dateOfBirth: undefined,
+            isPublic: undefined,
             experiences: []
         }
     );
@@ -43,7 +45,10 @@ const shaper = require('./');
             experiences: [
                 {
                     company: 'Slow Motion Software',
-                    years: {}
+                    years: {
+                        from: undefined,
+                        to: undefined
+                    }
                 }
             ]
         }
