@@ -20,9 +20,6 @@ const shaper = require('./');
     assert.deepEqual(
         shape({}),
         {
-            username: '',
-            dateOfBirth: null,
-            isPublic: null,
             experiences: []
         }
     );
@@ -30,7 +27,7 @@ const shaper = require('./');
     assert.deepEqual(
         shape({
             username: '    Aleks ',
-            isPublic: 'yes',
+            isPublic: 'no',
             dateOfBirth: '1987-12-01',
             experiences: [
                 {
@@ -45,10 +42,7 @@ const shaper = require('./');
             experiences: [
                 {
                     company: 'Slow Motion Software',
-                    years: {
-                        from: null,
-                        to: null
-                    }
+                    years: {}
                 }
             ]
         }
