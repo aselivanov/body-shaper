@@ -1,0 +1,28 @@
+<form id="profile" action="/" method="post">
+    <section>
+        <input name="firstName" placeholder="First name" />
+        <input name="lastName" placeholder="Last name" />
+    </section>
+
+    <div>
+        <label for="dateOfBirth">Date of birth</label>
+        <input name="dateOfBirth" type="date" />
+    </div>
+
+    <fieldset>
+        <legend>Employment History</legend>
+
+        <div>
+            Company: <input name="education[0][school]" /><br />
+            Years: <input name="education[0][years][since]" type="number" /> - 
+                    <input name="education[0][years][till]" type="number"  />
+        </div>
+        <div>
+            Company: <input name="education[1][school]" /><br />
+            Years: <input name="education[1][years][since]" type="number" /> - 
+                    <input name="education[1][years][till]" type="number"  />
+        </div>
+    </fieldset>
+
+    <button type="submit">Submit</button>
+</form>
